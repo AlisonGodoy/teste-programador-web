@@ -1,3 +1,42 @@
+# Realização da Atividade
+Instruções SQL para criação do banco de dados "testeimply":
+
+  - CREATE TABLE fornecedor ( id INT PRIMARY KEY AUTO_INCREMENT NOT NULL, nome VARCHAR(100) NOT NULL );
+
+  - CREATE TABLE produto ( referencia INT PRIMARY KEY AUTO_INCREMENT NOT NULL, descricao VARCHAR(50) NOT NULL, preco DECIMAL(10, 2) NOT NULL );
+
+  - CREATE TABLE IF NOT EXISTS venda ( id INT PRIMARY KEY AUTO_INCREMENT NOT NULL, cod_produto INT NOT NULL, quantidade INT(10) NOT NULL, preco_venda DECIMAL(10, 2) NOT NULL, cod_fornecedor INT NOT NULL, data_venda DATE NOT NULL, CEP INT(8) NOT NULL, UF CHAR(2) NOT NULL, cidade VARCHAR(30) NOT NULL,   
+    bairro VARCHAR(30) NOT NULL, rua VARCHAR(30) NOT NULL, numero INT(5) NOT NULL, FOREIGN KEY (cod_produto) REFERENCES produto(referencia), FOREIGN KEY (cod_fornecedor) REFERENCES fornecedor(id) );
+  
+  - INSERT INTO fornecedor(nome) VALUES ('Atacadão Santinha');
+  - INSERT INTO fornecedor(nome) VALUES ('Funilaria Godoy');
+  - INSERT INTO fornecedor(nome) VALUES ('Marcenaria do Joel');
+  - INSERT INTO fornecedor(nome) VALUES ('Globo Materiais Eletricos');
+  - INSERT INTO fornecedor(nome) VALUES ('Santa Tornearia');
+  
+  - INSERT INTO produto(descricao,preco) VALUES ('Escada 5 metros aço puro',640.90);
+  - INSERT INTO produto(descricao,preco) VALUES ('Tinta branca acetinada',220);
+  - INSERT INTO produto(descricao,preco) VALUES ('Parafuso 12mm para Painel de LED',80.35);
+  - INSERT INTO produto(descricao,preco) VALUES ('Pino de boliche customizado',130.90);
+  - INSERT INTO produto(descricao,preco) VALUES ('EPI completo Marcenaria',350);
+
+Imagem do modelo ER na pasta 'ER'.
+
+Na página inicial do sistema o usuário poderá visualizar todas as vendas realizadas, quais foram os produtos, valores, fornecedores, data e endereço de entrega. 
+O usuário pode consultar pelo código do produto e também pelo nome.
+No final dos registros é informado o total das vendas.
+
+Na segunda aba temos a tela de Cadastro, onde todos os campos pertinenentes são disponibilizados e obrigatório preenchimento para seguir com a inclusão.
+Validação no campo de CEP, ao inserir o sistema irá validar se é um CEP válido e se sim preencher automaticamente os demais campos do endereço, de acordo com a API de ViaCEP.
+
+Para desenvolvimento Back-End foi utilizado PHP e JavaScript, conexão MySQL em ambiente XAMPP. 
+
+Para desenvolvimento Front-End foi utilizado framework Bootstrap, reaproveitamento do modelo utilizado pelo sistema de Integração Bancária da Imply, sistema responsivo. 
+
+
+
+*---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*
+
 # Teste prático para Programador Web.
 
 O objetivo deste teste é conhecer suas habilidades em:
